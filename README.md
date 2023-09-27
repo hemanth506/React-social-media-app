@@ -1,1 +1,1 @@
-# Social-media-app
+# React-social-media-app
