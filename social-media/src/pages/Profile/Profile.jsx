@@ -3,7 +3,7 @@ import "./Profile.scss";
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <div className='profile'>Profile</div>
   )
 }
 

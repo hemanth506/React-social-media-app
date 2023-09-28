@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style.scss";
 
 // Pages
 import Home from "./pages/Home/Home";
@@ -17,17 +17,25 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/authContext";
 
 function App() {
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
+
+  const { darkMode } = useContext(DarkModeContext);
+  console.log(typeof darkMode, darkMode);
 
   const Layout = () => {
     return (
-      <div>
+      <div className="theme-dark">
         <NavBar />
         <div style={{ display: "flex" }}>
           <LeftBar />
-          <Outlet />
+          <div style={{ flex: 6 }}>
+            <Outlet />
+          </div>
           <RightBar />
         </div>
       </div>
@@ -72,7 +80,7 @@ function App() {
   ]);
   return (
     <div className="App">
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </div>
   );
 }
