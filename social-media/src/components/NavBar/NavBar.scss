@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .navbar {
   display: flex;
   align-items: center;
@@ -9,6 +11,9 @@
   position: sticky;
   top: 0;
   background-color: white;
+  z-index: 999;
+
+
   .left {
     display: flex;
     align-items: center;
@@ -31,6 +36,14 @@
       input {
         border-style: none;
         width: 300px;
+
+        @include mobile {
+          display: none;
+        }
+
+        @include tablet {
+          width: 100px;
+        }
       }
     }
   }
@@ -40,11 +53,20 @@
     align-items: center;
     gap: 20px;
 
+    @include mobile {
+      display: none;
+    }
+
     .user {
       display: flex;
       align-items: center;
       gap: 10px;
       font-weight: 500;
+
+      @include tablet {
+        display: none;
+      }
+
       img {
         width: 30px;
         height: 30px;
